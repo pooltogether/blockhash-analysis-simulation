@@ -34,24 +34,94 @@ Let’s assume the hashpower is 4% and the user has 50% of the tickets.  BLOCK_R
 
 This repository contains a JavaScript Monte Carlo simulation of the algorithm.
 
-## Results
+[JSFiddle here](https://jsfiddle.net/xqmgv3aw/13/)
+
+## Some Results
+
+The expected value is the ticket odds * the prize.  For example for a user with 10% of the tickets and a prize of 2 Ether their expected value is 0.1 * 2 = 0.2.
+
+We can see here the expected value of 0.28 is almost not worth gaming:
 
 ```
 ???????????????????
 Block reward: 2 Ether
 Uncle reward: 1.66 Ether
-Prize: 1.5 Ether
 Miner hash power: 4%
-Miner ticket odds: 50%
+PoolTogether ticket odds: 28%
+Prize: 1 Ether
+Expected value: 0.28
 ===================
-Average prize rewards per block: 0.750102
-Average mining rewards per block: 0.080464
-Average gamed prize rewards per block: 0.7654035
-Average gamed mining rewards per block: 0.07488612000003936
->>>>>>>>>>>>>>>>>>>
-Income for pure prize  +  pure mining: 0.830566
-Income for gamed prize + gamed mining: 0.8402896200000394
-Income boost gamed / prize: 1.17%
+Average prize rewards per block: 0.279189
+Average mining rewards per block: 0.080138
+Average gamed prize rewards per block: 0.288262
+Average gamed mining rewards per block: 0.07220924000005476
+===================
+Income for pure prize  +  pure mining: 0.359327
+Income for gamed prize + gamed mining: 0.36047124000005476
+Income boost gamed / prize: 0.32%
+```
+
+However if we boost the users odds to 50% and increase the prize, we see they can increase their income by 1.71%:
+
+```
+???????????????????
+Block reward: 2 Ether
+Uncle reward: 1.66 Ether
+Miner hash power: 4%
+PoolTogether ticket odds: 50%
+Prize: 3 Ether
+Expected value: 1.5
+===================
+Average prize rewards per block: 1.498827
+Average mining rewards per block: 0.079664
+Average gamed prize rewards per block: 1.530771
+Average gamed mining rewards per block: 0.07476410000003891
+===================
+Income for pure prize  +  pure mining: 1.578491
+Income for gamed prize + gamed mining: 1.605535100000039
+Income boost gamed / prize: 1.71%
+```
+
+Now let's increase the prize and decrease the user's chance:
+
+```
+???????????????????
+Block reward: 2 Ether
+Uncle reward: 1.66 Ether
+Miner hash power: 4%
+PoolTogether ticket odds: 10%
+Prize: 10 Ether
+Expected value: 1
+===================
+Average prize rewards per block: 0.99751
+Average mining rewards per block: 0.079516
+Average gamed prize rewards per block: 1.04016
+Average gamed mining rewards per block: 0.06995318000006666
+===================
+Income for pure prize  +  pure mining: 1.077026
+Income for gamed prize + gamed mining: 1.1101131800000668
+Income boost gamed / prize: 3.07%
+```
+
+We can see that with only 10% of the tickets owned they can boost their income by 3%.  Let's increase the prize by several orders of magnitude and decrease their odds:
+
+```
+???????????????????
+Block reward: 2 Ether
+Uncle reward: 1.66 Ether
+Miner hash power: 4%
+PoolTogether ticket odds: 5%
+Prize: 100 Ether
+Expected value: 5
+===================
+Average prize rewards per block: 4.9908
+Average mining rewards per block: 0.08011
+Average gamed prize rewards per block: 5.2191
+Average gamed mining rewards per block: 0.06946278000006993
+===================
+Income for pure prize  +  pure mining: 5.07091
+Income for gamed prize + gamed mining: 5.2885627800000705
+Income boost gamed / prize: 4.29%
 ```
 
 # References
