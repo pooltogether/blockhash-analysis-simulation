@@ -36,6 +36,7 @@ This repository contains a JavaScript Monte Carlo simulation of the algorithm.
 
 ## Results
 
+```
 ???????????????????
 Block reward: 2 Ether
 Uncle reward: 1.66 Ether
@@ -51,6 +52,7 @@ Average gamed mining rewards per block: 0.07488612000003936
 Income for pure prize  +  pure mining: 0.830566
 Income for gamed prize + gamed mining: 0.8402896200000394
 Income boost gamed / prize: 1.17%
+```
 
 # References
 
